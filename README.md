@@ -44,7 +44,40 @@
 - - git checkout 21e761f7046196baeb211cb66eafff987f468d7c siendo éste el hash del primer commit donde se crea el archivo
     
 - ¿Qué comando o comandos usaste en el punto 33?
-  - git reflog para vuscar el commit donde se hacia el merge de main con title (main absorve a title)
+  - git reflog para vuscar el commit donde se hacia el merge de main con title (main absorbe a title)
   - git checkout 79564c2 siendo éste el hash resumido del merge
 
 Me salté el paso 31 de eliminar el resto de ramas e hice los tags antes de eliminar las ramas por lo tanto al intentar moverme al tag htmlify me decia que era un nombre ambiguo y me movia directamente a la rama htmlify, despues de borrar las ramas si me pude mover al tag htmlify.
+
+Dejo el git reflog porque el segundo merge de main con title, despues de deshacer el primer merge al que forcé para no ser fast forward con el modificador --no-ff, olvidé volver a usar el modificador y al hacerlo fast forward ni aparece el commit, para que se vea que lo hice tal cual pedía la práctica.
+
+*Git Reflog*
+$ git reflog
+79564c2 (HEAD -> main, tag: title) HEAD@{0}: checkout: moving from ae90360f5832aafc09db9a9dfdf8d08211d0e3e1 to main
+ae90360 (tag: htmlify) HEAD@{1}: checkout: moving from main to htmlify
+79564c2 (HEAD -> main, tag: title) HEAD@{2}: checkout: moving from htmlify to main
+ae90360 (tag: htmlify) HEAD@{3}: checkout: moving from title to htmlify
+79564c2 (HEAD -> main, tag: title) HEAD@{4}: checkout: moving from 79564c2bf8b2e1e6c636f713615a2ff75a0722fd to title
+79564c2 (HEAD -> main, tag: title) HEAD@{5}: checkout: moving from 21e761f7046196baeb211cb66eafff987f468d7c to 79564c2
+21e761f (tag: inicial) HEAD@{6}: checkout: moving from main to 21e761f7046196baeb211cb66eafff987f468d7c
+79564c2 (HEAD -> main, tag: title) HEAD@{7}: merge title: Fast-forward
+1ce61cd HEAD@{8}: checkout: moving from title to main
+79564c2 (HEAD -> main, tag: title) HEAD@{9}: checkout: moving from 79564c2bf8b2e1e6c636f713615a2ff75a0722fd to title
+79564c2 (HEAD -> main, tag: title) HEAD@{10}: checkout: moving from main to 79564c2
+1ce61cd HEAD@{11}: reset: moving to HEAD~1
+a71d640 HEAD@{12}: merge title: Merge made by the 'ort' strategy.
+1ce61cd HEAD@{13}: checkout: moving from title to main
+79564c2 (HEAD -> main, tag: title) HEAD@{14}: commit: Añado un título al archivo git-nuestro.md
+1ce61cd HEAD@{15}: checkout: moving from main to title
+1ce61cd HEAD@{16}: merge styled: Fast-forward
+21e761f (tag: inicial) HEAD@{17}: checkout: moving from styled to main
+1ce61cd HEAD@{18}: commit (merge): Merge branch 'htmlify' into styled
+01301c9 (tag: styled) HEAD@{19}: checkout: moving from htmlify to styled
+ae90360 (tag: htmlify) HEAD@{20}: commit: Añado html tags al archivo git-nuestro.md para darle estilos
+21e761f (tag: inicial) HEAD@{21}: checkout: moving from main to htmlify
+21e761f (tag: inicial) HEAD@{22}: checkout: moving from styled to main
+01301c9 (tag: styled) HEAD@{23}: reset: moving to 01301c9
+21e761f (tag: inicial) HEAD@{24}: reset: moving to HEAD~1
+01301c9 (tag: styled) HEAD@{25}: commit: Añado estilos al archivo git-nuestro.md
+21e761f (tag: inicial) HEAD@{26}: checkout: moving from main to styled
+21e761f (tag: inicial) HEAD@{27}: commit (initial): Creo el archivo git-nuestro.md, añado contenido al archivo git-nuestro.md 
